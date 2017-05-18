@@ -1,0 +1,1 @@
+g++ -L/usr/local/lib sk6812viaspi.c NeoViaSPI.cpp -o sk6812viaspi -lfahw -I ../lib/includes/
