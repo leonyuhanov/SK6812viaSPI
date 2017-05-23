@@ -14,7 +14,9 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 * Add the following at the end of /boot/cmd.txt, note im setting the buffer size to 1024000 bytes
 
   > sudo nano /boot/cmd.txt
+  
   Add this to the end of the line
+  
   > spidev.bufsiz=1024000
   
 * Reboot the pi and run this to check that the setting has been made permenantly
