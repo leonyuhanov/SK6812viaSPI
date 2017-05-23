@@ -9,7 +9,7 @@ YES
 YES but NO. SPI Transfers "can and will" be interupted by the OS, as your program runs in userspace so this will probbaly never work
 
 # Raspberry Pi via SPIDEV
-YES...Still working on this
+YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFrame required
 
 # NanoPi Neo Air
 YES
