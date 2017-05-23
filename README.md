@@ -21,10 +21,11 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 		
     > nano /root/setSPIBufSize
     
-*	Add the following 2 lines, note im setting the buffer size to 1024000 bytes
+* Add the following 2 lines, note im setting the buffer size to 1024000 bytes
 
-		> chmod 666 /sys/module/spidev/parameters/bufsiz
-		> echo 1024000 > /sys/module/spidev/parameters/bufsiz
+	> chmod 666 /sys/module/spidev/parameters/bufsiz
+	> echo 1024000 > /sys/module/spidev/parameters/bufsiz
+	
 * Make the file executable 
     
     > chmod 777 /root/setSPIBufSize
@@ -32,13 +33,20 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 * Edit the startup script /etc/rc/local and add the following line
 
     > sudo nano /etc/rc/local
-  	> sudo /root/setSPIBufSize
+    > sudo /root/setSPIBufSize
 
 * Reboot the device and check that the setting has been done
 
   >cat /sys/module/spidev/parameters/bufsiz
   This should output 1024000
   
+* Compile the exampl with this command
+
+  > g++ -o sk6812viaspi sk6812viaspi.cpp NeoViaSPI.cpp
+  
+* Run it as root or the SPIDEV will not open
+
+  > sudo sk6812viaspi
   
 # STM32F103C(bluepill)
 YES  
