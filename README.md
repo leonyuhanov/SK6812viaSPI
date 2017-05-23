@@ -1,6 +1,6 @@
 # SK6812viaSPI
-Drive SK6812 Neopixel Clones Using the SPI Data PIN
-HIGHLY recomend using pixel 0 as a NULL pixel to boost 3.3v to 5v for all 3.3v Boards
+This repo contains basic driver code in C++ & Arduino C++ that allows you to drive SK6812, WS2812, WS2812B/Neopixels using the SPI port. Only the MOSI(DATA) pin of the SPI port is required. Below are the platforms that this has been tested on.
+HIGHLY recomend using pixel 0 as a NULL pixel to boost 3.3v to 5v for all 3.3v boards or an equivelent high speed Voltage Level Shifter.
 
 # ESP8622
 YES
