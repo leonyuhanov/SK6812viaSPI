@@ -11,8 +11,34 @@ YES but NO. SPI Transfers "can and will" be interupted by the OS, as your progra
 # Raspberry Pi via SPIDEV
 YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFrame required
 
-# NanoPi Neo Air
+# NanoPi Neo Air (using the Matrix GPI library)
 YES
 
+# NanoPi Neo Air (using native SPIDEV)
+
+YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFrame required
+* Create an executable script in /root
+		
+    > nano /root/setSPIBufSize
+    
+*	Add the following 2 lines, note im setting the buffer size to 1024000 bytes
+
+		> chmod 666 /sys/module/spidev/parameters/bufsiz
+		> echo 1024000 > /sys/module/spidev/parameters/bufsiz
+* Make the file executable 
+    
+    > chmod 777 /root/setSPIBufSize
+    
+* Edit the startup script /etc/rc/local and add the following line
+
+    > sudo nano /etc/rc/local
+  	> sudo /root/setSPIBufSize
+
+* Reboot the device and check that the setting has been done
+
+  >cat /sys/module/spidev/parameters/bufsiz
+  This should output 1024000
+  
+  
 # STM32F103C(bluepill)
 YES  
