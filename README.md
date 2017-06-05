@@ -61,4 +61,4 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
   > sudo sk6812viaspi
   
 # STM32F103C(bluepill)
-YES  
+YES - But flaky because we can not set the SPI frequency without using a divider and the closes one causes some minor issues on the last pixel
