@@ -36,6 +36,7 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 * Add the following 2 lines, note im setting the buffer size to 1024000 bytes
 
   > chmod 666 /sys/module/spidev/parameters/bufsiz
+ 
   > echo 1024000 > /sys/module/spidev/parameters/bufsiz
 	
 * Make the file executable 
@@ -46,6 +47,34 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 
   > sudo nano /etc/rc/local
   > sudo /root/setSPIBufSize
+
+* Reboot the device and check that the setting has been done
+
+  >cat /sys/module/spidev/parameters/bufsiz
+  This should output 1024000
+  
+* Compile the exampl with this command
+
+  > g++ -o sk6812viaspi sk6812viaspi.cpp NeoViaSPI.cpp
+  
+* Run it as root or the SPIDEV will not open
+
+  > sudo sk6812viaspi
+
+# NanoPi DUO (using native SPIDEV)
+
+YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFrame required
+* Create an executable script in /root
+		
+  > sudo nano /boot/boot.cmd
+    
+* Add the following boot-time argument to the end of the boot args line, note im setting the buffer size to 1024000 bytes
+
+  > spidev.bufsiz=1024000
+	
+* Recompile using 
+    
+  >  mkimage -C none -A arm -T script -d boot.cmd boot.scr
 
 * Reboot the device and check that the setting has been done
 
