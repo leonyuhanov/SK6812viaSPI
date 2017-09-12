@@ -61,7 +61,7 @@ YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFra
 
   > sudo sk6812viaspi
 
-# NanoPi DUO (using native SPIDEV)
+# NanoPi DUO (using native SPIDEV) IN DEVELOPMENT
 
 YES - Make sure your spi bufsiz=LARGE_ENOUGH NumofPixels x 12 = bytes per SPIFrame required
 * Create an executable script in /root
